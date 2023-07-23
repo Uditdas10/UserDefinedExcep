@@ -1,6 +1,8 @@
 package com.jbs.main;
 
 import java.io.BufferedReader;
+import java.util.List;
+import java.util.ArrayList;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -10,24 +12,31 @@ import com.jbs.model.Student;
 public class Main {
 
 	public static void main(String[] args) {
+		List<Student> al = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         try {
-        	System.out.print("Enter roll no.");
-        	int roll = Integer.parseInt(br.readLine());
-        	System.out.println("Enter name");
-        	String name = br.readLine();
-        	Student s1=new Student(roll,name);
-        	System.out.println(s1);        	
-        }catch (NumberFormatException e){
+        	for(int i=0; i<=5; i++){
+        	 System.out.print("Enter roll no.");
+        	 int roll = Integer.parseInt(br.readLine());
+        	 System.out.println("Enter name");
+        	 String name = br.readLine();
+        	 al.add(new Student(roll,name));
+             }
+        
+        	System.out.println("List of the Students");
+        	for(Student s : al)	{
+        	System.out.println(s);  
+        	}
+         }catch (NumberFormatException e){
         	System.out.println(e);
-        }catch (IOException e){
+         }catch (IOException e){
         	System.out.println(e);
         	
-        }
-        catch (RollException e){
+         }
+         catch (RollException e){
         	System.out.println(e);
-        }
-        System.out.println("End pf main function");
-	}
-
+         }
+         System.out.println("End pf main function");
+	
+     }    
 }
